@@ -29,8 +29,8 @@ cd MelodyMart
 Compile and Run
 css
 Copy code
-javac [MainClass].java
-java [MainClass]
+javac MainApp.java
+java MainApp
 Contributions:
 Your ideas can make MelodyMart even better! Feel free to fork this repository, make your changes, and submit a pull request. All contributions are appreciated.
 
