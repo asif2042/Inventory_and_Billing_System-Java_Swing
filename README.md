@@ -18,19 +18,19 @@ Restocking Made Simple: Sold out on a hot-selling album? No worries! The system 
 Administrator Tools: Special features are available for administrators to oversee sales, manage staff accounts, and get insights into best-selling products.
 
 Setup:
-Clone the Repository
-bash
-Copy code
+
+
+Clone the Repository:
 git clone [Your Repository Link]
+
 Navigate to the MelodyMart directory
-bash
-Copy code
+bash: 
 cd MelodyMart
-Compile and Run
-css
-Copy code
+Compile and Run: 
+
 javac MainApp.java
 java MainApp
+
 Contributions:
 Your ideas can make MelodyMart even better! Feel free to fork this repository, make your changes, and submit a pull request. All contributions are appreciated.
 
