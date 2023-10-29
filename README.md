@@ -19,20 +19,15 @@ Administrator Tools: Special features are available for administrators to overse
 
 Setup:
 
+        Clone the Repository: git clone https://github.com/asif2042/MelodyMart-JavaProject.git
+        
+        Navigate to the MelodyMart directory
+        
+        bash:   cd MelodyMart
+        
+                javac MainApp.java
+                java MainApp
 
-
-
-Clone the Repository: git clone https://github.com/asif2042/MelodyMart-JavaProject.git
-
-Navigate to the MelodyMart directory
-
-bash:   cd MelodyMart
-
-        Compile and Run: 
-
-javac MainApp.java
-
-java MainApp
 
 Contributions:
 
@@ -41,5 +36,4 @@ Your ideas can make MelodyMart even better! Feel free to fork this repository, m
 
 
 License:
-
 This project is licensed under the MIT License.
