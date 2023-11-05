@@ -249,7 +249,7 @@ public class Inventory implements Iterable<StockableProduct> {
 	     public  void updateDatabase() {
 	    	 
 	    	 
-	    	 System.out.println("asifasifaisf");
+	    	
 	         String url = "jdbc:mysql://localhost:3306/asif";
 	         String uname = "root";
 	         String pass = "asif@570068";

@@ -21,6 +21,19 @@ public class MainApp {
         
     	inventory.LoadInventory();
         
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
     	
     	
     	  
