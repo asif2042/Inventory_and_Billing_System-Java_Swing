@@ -2,13 +2,14 @@ Mode View Controller
 
 
 
-MelodyMart/
+Inventory and Billing System/
 |-- src/
 |   |-- main/
 |   |   |-- java/
 |   |   |   |-- MainApp                <-- Operate all functionality 
 |   |   |   |-- model/                 <-- Backend: Represents the Data and Business Logic
 |   |   |   |   |-- Product.java
+|   |   |   |   |-- Stockable.java
 |   |   |   |   |-- StockableProduct.java
 |   |   |   |   |-- Game.java
 |   |   |   |   |-- Music.java
@@ -16,10 +17,19 @@ MelodyMart/
 |   |   |   |   |-- Inventory.java
 |   |   |   |-- controller/            <-- Backend: Intermediary between View & Model
 |   |   |   |   |-- ShopController.java
+|   |   |   |   |-- ControllWarehouse.java
 |   |   |   |   |-- BillingController.java
 |   |   |   |   |-- DiscountController.java
-|   |   |   |-- view/                 <-- Frontend: The GUI
+|   |   |   |-- view/                  <-- Frontend: The GUI
 |   |   |   |   |-- MainFrame.java
 |   |   |   |   |-- ProductPanel.java
 |   |   |   |   |-- CartPanel.java
 |   |   |   |   |-- InvoicePanel.java
+|   |   |   |   |-- HomePanel.java
+|   |   |   |   |-- LoginPanel.java
+|   |   |   |   |-- WarehousePanel.java
+|   |   |   |   |-- CallBack.java
+|   |   |   |   |-- Components.java
+|-- Referenced Libraries/
+|   |   |-- mysql-connector-j-8.1.0.jar 
+|-- MVC.txt

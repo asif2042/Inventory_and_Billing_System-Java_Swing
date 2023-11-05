@@ -2,12 +2,14 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -46,6 +48,8 @@ public class WarehousePanel extends JPanel implements ActionListener{
 	private JLabel pLabelName, pLabelId, pLabelPrice, pLabelGenre, pLabelYear,pLabelDiscount, pLabelAmount,pCreator, pLabelCategory, pLabelTitle;
 	
 	private JPanel pCategoryPanel;
+	private ImageIcon productIcon;
+	private JLabel productIconLabel;
 	private JTextField ptfName, ptfId, ptfPrice, ptfGenre, ptfYear,ptfDiscount, ptfAmount, ptfCreator;
 	private JRadioButton btMovie, btMusic, btGame;
 	private ButtonGroup buttonGroup;
@@ -127,57 +131,78 @@ public class WarehousePanel extends JPanel implements ActionListener{
 		pLabelTitle.setBackground(Color.blue);
 		pLabelTitle.setForeground(Color.white);
 		
+		
+		
+		
+		
+			
+		
+		
+		
+		
+		
 		pCategoryPanel = new JPanel();
 		pCategoryPanel.setBounds(1260,70, 170,170);
-		pCategoryPanel.setBackground(Color.white);
+		pCategoryPanel.setBackground(null);
+		
+		
+		productIcon = Components.movieImg;
+		Image tempImg = productIcon.getImage();
+		tempImg = tempImg.getScaledInstance(pCategoryPanel.getWidth(), pCategoryPanel.getHeight(), Image.SCALE_SMOOTH);
+		productIcon = new ImageIcon(tempImg);
+		productIconLabel = new JLabel(productIcon);
+		pCategoryPanel.add(productIconLabel);
+		
+		
+		
 		
 		
 		pLabelId = new JLabel("Product Id");
 		pLabelId.setBounds(20, 80,150, 35);
-		pLabelId.setForeground(Color.black);
+		pLabelId.setForeground(Color.red);
 		pLabelId.setFont(Components.regularFont);
 		
 		pLabelName = new JLabel("Name");
 		pLabelName.setBounds(20, 120,150, 35);
-		pLabelName.setForeground(Color.black);
+		pLabelName.setForeground(Color.red);
 		pLabelName.setFont(Components.regularFont);
 		
 		pLabelPrice = new JLabel("Price");
 		pLabelPrice.setBounds(20, 160,150, 35);
-		pLabelPrice.setForeground(Color.black);
+		pLabelPrice.setForeground(Color.RED);
 		pLabelPrice.setFont(Components.regularFont);
 		
 		pLabelGenre = new JLabel("Genre");
 		pLabelGenre.setBounds(20, 200,150, 35);
-		pLabelGenre.setForeground(Color.black);
+		pLabelGenre.setForeground(Color.RED);
 		pLabelGenre.setFont(Components.regularFont);
 		
 		pLabelDiscount = new JLabel("Discount");
 		pLabelDiscount.setBounds(20, 240,150, 35);
-		pLabelDiscount.setForeground(Color.black);
+		pLabelDiscount.setForeground(Color.RED);
 		pLabelDiscount.setFont(Components.regularFont);
 		
 		pLabelYear = new JLabel("Publised Year");
 		pLabelYear.setBounds(500, 80,150, 35);
-		pLabelYear.setForeground(Color.black);
+		pLabelYear.setForeground(Color.RED);
 		pLabelYear.setFont(Components.regularFont);
 		
 		
 		pLabelAmount = new JLabel("Stock Quantity");
 		pLabelAmount.setBounds(500, 120,150, 35);
-		pLabelAmount.setForeground(Color.black);
+		pLabelAmount.setForeground(Color.RED);
 		pLabelAmount.setFont(Components.regularFont);
 		
 		pCreator = new JLabel("Creator");
 		pCreator.setBounds(500,160,150,25);
 		pCreator.setFont(Components.regularFont);
 		//pCreator.setOpaque(true);
-		pCreator.setForeground(Color.black);
+		pCreator.setForeground(Color.RED);
 		
 		
 		pLabelCategory = new JLabel("Category");
-		pLabelCategory.setBounds(500, 200,150, 35);
-		pLabelCategory.setForeground(Color.black);
+		pLabelCategory.setBounds(500, 200,150, 25);
+		pLabelCategory.setForeground(Color.RED);
 		pLabelCategory.setFont(Components.regularFont);
 		
 		
@@ -235,23 +260,23 @@ public class WarehousePanel extends JPanel implements ActionListener{
 		
 		
 		btMovie = new JRadioButton("Movie");
-		btMovie.setForeground(Color.white);
+		btMovie.setForeground(Color.RED);
 		btMovie.setBackground(null);
 		btMovie.setFont(Components.smallFont);
-		btMovie.setBounds(660, 200,120, 25);
+		btMovie.setBounds(660, 205,120, 20);
 		
 		
 		btMusic = new JRadioButton("Music");
-		btMusic.setForeground(Color.white);
+		btMusic.setForeground(Color.RED);
 		btMusic.setBackground(null);
 		btMusic.setFont(Components.smallFont);
-		btMusic.setBounds(660, 230,120, 25);
+		btMusic.setBounds(660, 225,120, 20);
 		
 		btGame = new JRadioButton("Game");
-		btGame.setForeground(Color.white);
+		btGame.setForeground(Color.RED);
 		btGame.setBackground(null);
 		btGame.setFont(Components.smallFont);
-		btGame.setBounds(660, 260,120, 25);
+		btGame.setBounds(660, 245,120, 20);
 		
 		
 		buttonGroup = new ButtonGroup();
@@ -366,6 +391,12 @@ public class WarehousePanel extends JPanel implements ActionListener{
 		pClearButton.addActionListener(this);
 		pRemoveButton.addActionListener(this);
 		
+		
+		
+		btMovie.addActionListener(this);
+		btMusic.addActionListener(this);
+		btGame.addActionListener(this);
+		
     
     }
 	
@@ -451,24 +482,43 @@ public class WarehousePanel extends JPanel implements ActionListener{
 				ptfCreator.setText(creator);
 				
 				
-				
+				// Remove the previous productIconLabel
+		        if (productIconLabel != null) {
+		            pCategoryPanel.remove(productIconLabel);
+		        }
+
 				
 				
 				
 				if(btMovie.getText().equals(category)) {
-				btMovie.setSelected(true);
-				//photoLabel.setIcon(movieIcon);
+				      btMovie.setSelected(true);
+				      productIcon = Components.movieImg;//photoLabel.setIcon(movieIcon);
 				}
 				else if(btMusic.getText().equals(category)) {
 					btMusic.setSelected(true);
-					//photoLabel.setIcon(musicIcon);
+					productIcon = Components.musicImg;
 				}
 				else if(btGame.getText().equals(category)) {
 				    btGame.setSelected(true);
-					//photoLabel.setIcon(gameIcon);
+				    productIcon = Components.gameImg;
 				}
 				
+				
+				
+				
+				
+				
+				
+				Image tempImg = productIcon.getImage();
+				tempImg = tempImg.getScaledInstance(pCategoryPanel.getWidth(), pCategoryPanel.getHeight(), Image.SCALE_SMOOTH);
+				productIcon = new ImageIcon(tempImg);
+				productIconLabel = new JLabel(productIcon);
+				pCategoryPanel.add(productIconLabel);
+				
+				
             
+				revalidate();
+				repaint();
 		    
 		
 	    		
@@ -555,6 +605,18 @@ public class WarehousePanel extends JPanel implements ActionListener{
 			       JOptionPane.showMessageDialog(this, "Please enter valid numeric values!", "Error", JOptionPane.ERROR_MESSAGE);
 			   }
 			
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
+			   
 
 			
 		
@@ -724,7 +786,31 @@ public class WarehousePanel extends JPanel implements ActionListener{
 				
 				
 			}
-
+			else if(e.getSource() == btMovie) {
+				productIcon = Components.movieImg;
+				Image tempImg = productIcon.getImage();
+				tempImg = tempImg.getScaledInstance(pCategoryPanel.getWidth(), pCategoryPanel.getHeight(), Image.SCALE_SMOOTH);
+				productIcon = new ImageIcon(tempImg);
+				productIconLabel.setIcon(productIcon);
+			}
+			else if(e.getSource() == btMusic) {
+				productIcon = Components.musicImg;
+				Image tempImg = productIcon.getImage();
+				tempImg = tempImg.getScaledInstance(pCategoryPanel.getWidth(), pCategoryPanel.getHeight(), Image.SCALE_SMOOTH);
+				productIcon = new ImageIcon(tempImg);
+				productIconLabel.setIcon(productIcon);
+			}
+			else if(e.getSource() == btGame) {
+				productIcon = Components.gameImg;
+				Image tempImg = productIcon.getImage();
+				tempImg = tempImg.getScaledInstance(pCategoryPanel.getWidth(), pCategoryPanel.getHeight(), Image.SCALE_SMOOTH);
+				productIcon = new ImageIcon(tempImg);
+				productIconLabel.setIcon(productIcon);
+				
+			}
+		
+		
+		
 		
 			else if(e.getSource() == backButton) {
 				inventory.updateDatabase();

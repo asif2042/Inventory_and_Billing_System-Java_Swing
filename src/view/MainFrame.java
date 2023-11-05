@@ -13,6 +13,7 @@ import javax.swing.event.ChangeListener;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.*;
 
 public class MainFrame extends JFrame {
@@ -24,7 +25,7 @@ public class MainFrame extends JFrame {
     
     private ProductPanel selectedProductPanel;
     private ProductPanel movie,music,game;
-    
+    private ImageIcon movieTabbedPanelIcon, musicTabbedPanelIcon, gameTabbedPanelIcon;
     
     private WarehousePanel warehousePanel;
     private HomePanel homePanel;
@@ -97,20 +98,30 @@ public class MainFrame extends JFrame {
       
         
         shopName = new JLabel("MelodyMart");
-        shopName.setFont(Components.titleFont);
-        shopName.setBounds(70,30, 200,50);
+        shopName.setFont(new Font("Broadway", Font.BOLD, 60));
+        shopName.setBounds(70,30, 500,50);
         shopName.setForeground(Color.black);
         
         
-        shopLocation = new JLabel("Dhaka");
-      
-        shopLocation.setBounds(70,80, 200,10);
+        shopLocation = new JLabel("Dhaka - Bangladesh");
+        
+        shopLocation.setBounds(70,80, 400,25);
         shopLocation.setForeground(Color.black);
+        shopLocation.setFont(new Font("Arial", Font.BOLD, 25));
 	        
         quotes = new JLabel("Happy Shopping!");
-        quotes.setFont(Components.regularFont);
-        quotes.setBounds(70,90, 300,100);
+        quotes.setFont(new Font("Blackadder ITC", Font.BOLD, 40));
+        quotes.setBounds(70,115, 300,30);
         quotes.setForeground(Color.yellow);
+        
+        
+        
+        
+        
+        
+        
+        
+       
         
         
         
@@ -130,7 +141,7 @@ public class MainFrame extends JFrame {
         
         
         warehousePanel = new WarehousePanel(inventory, this);
-        warehousePanel.setBackground(new Color(160,00,0));
+        warehousePanel.setBackground(new Color(40,45,55));
         warehousePanel.setBounds(70, 170,1450,740);
         
         
@@ -214,16 +225,35 @@ public class MainFrame extends JFrame {
         movie.setBackground(Color.red);
         
         music = new ProductPanel(inventory, "Music", this , selectedProductInventory);
-        music.setBackground(new Color(80,70,115));
+        music.setBackground(new Color(180,190,185));
         
         game = new ProductPanel(inventory, "Game", this, selectedProductInventory);
         game.setBackground(Color.gray); 
         
         
         
-        tabbedPane.add("Movie",movie);
-        tabbedPane.add("Music",music);
-        tabbedPane.add("Game",game);
+        
+        // picture scalling
+        
+        Image tempImg = Components.movieTabbedPanelIcon.getImage();
+    	tempImg = tempImg.getScaledInstance(40, 30, Image.SCALE_SMOOTH);
+    	movieTabbedPanelIcon = new ImageIcon(tempImg);
+    	
+    	
+    	tempImg = Components.musicTabbedPanelIcon.getImage();
+    	tempImg = tempImg.getScaledInstance(40, 30, Image.SCALE_SMOOTH);
+    	musicTabbedPanelIcon = new ImageIcon(tempImg);
+    	
+    	
+    	tempImg = Components.gameTabbedPanelIcon.getImage();
+    	tempImg = tempImg.getScaledInstance(40, 30, Image.SCALE_SMOOTH);
+    	gameTabbedPanelIcon = new ImageIcon(tempImg);
+        
+        
+        
+        tabbedPane.addTab("Movie",movieTabbedPanelIcon,movie);
+        tabbedPane.addTab("Music",musicTabbedPanelIcon,music);
+        tabbedPane.addTab("Game",gameTabbedPanelIcon,game);
       
        
         

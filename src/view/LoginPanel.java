@@ -13,10 +13,13 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-//Callback.java
-public interface Callback {
-void onLoginAttempt(boolean success);
-}
+
+
+		//Callback.java
+		//	public interface Callback {
+		//	void onLoginAttempt(boolean success);
+		//	}
+
 
 
 public class LoginPanel extends JPanel implements ActionListener{
@@ -71,7 +74,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 		userNameLabel.setBounds(500, 520, 200, 40);
 		userNameLabel.setOpaque(true);
 		userNameLabel.setBackground(null);
-		userNameLabel.setForeground(new Color(0,110,120));
+		userNameLabel.setForeground(new Color(70,49,90));
 		
 		
 		passLabel = new JLabel("Password"); 
@@ -79,7 +82,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 		passLabel.setBounds(500, 600, 200, 40);
 		passLabel.setOpaque(true);
 		passLabel.setBackground(null);
-		passLabel.setForeground(new Color(0,110,120));
+		passLabel.setForeground(new Color(70,49,90));
 		
 		
 	    loginButton = new JButton("Login");
@@ -91,16 +94,16 @@ public class LoginPanel extends JPanel implements ActionListener{
 	
 		
 		tf = new JTextField();
-		tf.setFont(new Font("Century Gothic", Font.BOLD, 30));
+		tf.setFont(new Font("Century Gothic", Font.BOLD, 20));
 		tf.setBackground(Color.white);
-		tf.setForeground(Color.blue);
+		tf.setForeground(new Color(70,49,90));
 		tf.setBounds(800, 520, 200, 40);
 		
 		
 		pf = new JPasswordField();
 		pf.setFont(new Font("Century Gothic", Font.BOLD, 30));
 		pf.setBackground(Color.white);
-		pf.setForeground(Color.blue);
+		pf.setForeground(new Color(70,49,90));
 		pf.setBounds(800, 600, 200, 40);
 		
 		

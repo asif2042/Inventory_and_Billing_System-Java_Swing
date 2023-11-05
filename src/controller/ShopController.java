@@ -24,7 +24,7 @@ public class ShopController {
 	    // for testing purposes
 	      
 	    //mainFrame.showProductPage();
-	    //mainFrame.showWarehousePage();
+	    //mainFrame.showHomePage();
 	   
 	   
 	    

@@ -19,24 +19,9 @@ public class MainApp {
     	
     	//Loading inventory list from database 
         
-    	inventory.LoadInventory();
+    	  inventory.LoadInventory();
         
-        
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    	
-    	
-    	  
+          
     	  MainFrame  mainFrame = new MainFrame(inventory);
           mainFrame.setLayout(null);
           mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,17 +29,14 @@ public class MainApp {
         
         // Initialize the controller, passing in the model.
         ShopController shopController = new ShopController(inventory, mainFrame);
-
         
-
+        
         // Display the main frame.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                mainFrame.setVisible(true);
             }
         });
-        
-        
         
         
         // updating database

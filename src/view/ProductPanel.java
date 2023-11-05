@@ -6,6 +6,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -13,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -50,6 +52,9 @@ public class ProductPanel extends JPanel implements ActionListener{
 	
 	private JLabel pLabelName, pLabelId, pLabelPrice, pLabelGenre, pLabelYear,pLabelDiscount, pLabelAmount, pLabelCategory, pLabelTitle;
 	private JLabel splTitle , selectedQuantityLabel, totalQuantity ; // selectedProductListTitle
+	private ImageIcon productIcon ;
+
+	
 	
 	private JPanel pCategoryPanel;
 	private JTextField ptfName, ptfId, ptfPrice, ptfGenre, ptfYear,ptfDiscount, ptfAmount;
@@ -193,9 +198,30 @@ public class ProductPanel extends JPanel implements ActionListener{
 		pLabelTitle.setBackground(Color.blue);
 		pLabelTitle.setForeground(Color.white);
 		
+		
+		// Product Icon in panel
+				
+		if(itemCategoryName.equals("Movie")) {
+			productIcon = Components.movieImg;
+		}
+		else if(itemCategoryName.equals("Music")) {
+			productIcon = Components.musicImg;
+		}
+        else if(itemCategoryName.equals("Game")) {
+        	productIcon = Components.gameImg;
+		}
+		
+		
+		
 		pCategoryPanel = new JPanel();
 		pCategoryPanel.setBounds(800,70, 170,170);
-		pCategoryPanel.setBackground(Color.white);
+		pCategoryPanel.setBackground(null);
+		
+		Image tempImg = productIcon.getImage();
+		tempImg = tempImg.getScaledInstance(pCategoryPanel.getWidth(), pCategoryPanel.getHeight(), Image.SCALE_SMOOTH);
+		productIcon = new ImageIcon(tempImg);
+		JLabel productIconLabel = new JLabel(productIcon);
+		pCategoryPanel.add(productIconLabel);
 		
 		pAddButton = new JButton("Add to Cart");
 		pAddButton.setBounds(660,200,120,40);
