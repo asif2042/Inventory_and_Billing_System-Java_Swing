@@ -1,5 +1,6 @@
-Mode View Controller
-
+Mode View Controller                                           Asif Miah
+                                                               Teacher Assistant at North South University 
+                                                               Studying CSE at North South University
 
 
 Inventory and Billing System/
